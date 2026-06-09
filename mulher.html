@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<!-- saved from url=(0057)file:///Users/joriamota/Documents/Claude/ficha_joria.html -->
+<html lang="pt-BR"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plano Jória — Dieta &amp; Treino</title>
+<style>
+  :root {
+    --bg: #f8f7f4;
+    --surface: #ffffff;
+    --border: #e8e5e0;
+    --text: #1a1a1a;
+    --muted: #888;
+    --accent: #2c5f8a;
+    --accent-light: #eaf1f8;
+    --green: #2a6b47;
+    --green-light: #eaf4ee;
+    --purple: #6b3a9e;
+    --purple-light: #f3eefa;
+    --gold: #7a5c1e;
+    --gold-light: #fdf6e8;
+    --red-soft: #8b3a3a;
+    --tag-bg: #f0ede8;
+    --radius: 12px;
+    --shadow: 0 2px 16px rgba(0,0,0,.06);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Georgia', serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  /* ── LAYOUT ── */
+  .wrap { max-width: 880px; margin: 0 auto; padding: 40px 24px 80px; }
+
+  /* ── HEADER ── */
+  .hero {
+    text-align: center;
+    padding: 64px 24px 48px;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 48px;
+  }
+  .hero-eyebrow {
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-size: clamp(32px, 6vw, 52px);
+    font-weight: normal;
+    color: var(--accent);
+    letter-spacing: -1px;
+    margin-bottom: 10px;
+  }
+  .hero-sub {
+    font-family: 'Arial', sans-serif;
+    font-size: 15px;
+    color: var(--muted);
+    margin-bottom: 28px;
+  }
+  .hero-isa {
+    display: inline-block;
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    color: var(--purple);
+    background: var(--purple-light);
+    padding: 6px 16px;
+    border-radius: 99px;
+    letter-spacing: .5px;
+  }
+
+  /* ── STATS GRID ── */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 12px;
+    margin-bottom: 48px;
+  }
+  .stat {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 16px;
+    text-align: center;
+  }
+  .stat-val {
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .stat-label {
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ── SECTION TITLES ── */
+  .section-title {
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  h2 {
+    font-size: 24px;
+    font-weight: normal;
+    color: var(--text);
+    margin-bottom: 6px;
+    letter-spacing: -.3px;
+  }
+
+  /* ── MACRO CARD ── */
+  .macro-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 48px;
+  }
+  .macro-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    text-align: center;
+  }
+  .macro-card.kcal { border-top: 3px solid var(--accent); }
+  .macro-card.prot { border-top: 3px solid var(--green); }
+  .macro-card.carb { border-top: 3px solid var(--gold); }
+  .macro-card.fat  { border-top: 3px solid #c0785a; }
+  .macro-val { font-size: 26px; font-weight: bold; display: block; margin-bottom: 4px; }
+  .macro-card.kcal .macro-val { color: var(--accent); }
+  .macro-card.prot .macro-val { color: var(--green); }
+  .macro-card.carb .macro-val { color: var(--gold); }
+  .macro-card.fat  .macro-val { color: #c0785a; }
+  .macro-label {
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ── TRAINING CARDS ── */
+  .training-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 48px;
+  }
+  .treino-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  .treino-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    user-select: none;
+    transition: background .15s;
+  }
+  .treino-header:hover { background: #fafaf9; }
+  .treino-header-left { display: flex; align-items: center; gap: 14px; }
+  .treino-day {
+    font-family: 'Arial', sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    min-width: 70px;
+  }
+  .treino-title { font-size: 17px; font-weight: normal; }
+  .treino-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .treino-time {
+    background: var(--tag-bg);
+    padding: 3px 10px;
+    border-radius: 99px;
+    font-size: 11px;
+  }
+  .chevron { font-size: 14px; transition: transform .25s; color: var(--muted); line-height: 1; }
+  .treino-card.open .chevron { transform: rotate(180deg); }
+  .treino-body { display: none; padding: 14px 24px 24px; }
+  .treino-card.open .treino-body { display: block; }
+
+  /* ── SUPERSET (BI-SET) GROUP ── */
+  .superset-label td {
+    background: var(--purple);
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: .5px;
+    padding: 7px 12px;
+    border: none !important;
+  }
+  .superset-row td {
+    background: #faf8fe;
+    border-bottom: 1px solid #ede8f8 !important;
+  }
+  .superset-end td {
+    border-bottom: 2px solid var(--purple) !important;
+  }
+  /* Drop-set highlight */
+  .drop-row td { background: #fff8f8; border-left: 3px solid #b84040; }
+  .drop-row td:first-child { border-left: none; }
+  .drop-row { border-left: 3px solid #b84040; }
+
+  /* ── WARM-UP TAG ── */
+  .warmup-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    color: var(--green);
+    background: var(--green-light);
+    padding: 6px 14px;
+    border-radius: 99px;
+    margin: 16px 0;
+  }
+
+  /* ── EXERCISE TABLE ── */
+  .ex-table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+  .ex-table th {
+    font-family: 'Arial', sans-serif;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: left;
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--border);
+    font-weight: normal;
+  }
+  .ex-table td {
+    padding: 11px 10px;
+    font-size: 14px;
+    border-bottom: 1px solid #f2f0ec;
+    vertical-align: top;
+  }
+  .ex-table tr:last-child td { border-bottom: none; }
+  .ex-table tr:hover td { background: #fafaf9; }
+
+  .badge {
+    display: inline-block;
+    font-family: 'Arial', sans-serif;
+    font-size: 9px;
+    letter-spacing: 1px;
+    padding: 2px 7px;
+    border-radius: 4px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  .badge-c   { background: var(--accent-light); color: var(--accent); }
+  .badge-i   { background: #f0f0f0; color: #555; }
+  .badge-bi  { background: var(--purple-light); color: var(--purple); }
+  .badge-drop{ background: #fdecea; color: #b84040; }
+  .badge-rp  { background: #fff3e0; color: #a06000; }
+  .badge-exc { background: var(--green-light); color: var(--green); }
+
+  .ex-name { font-weight: normal; font-size: 14px; }
+  .ex-note { font-family: 'Arial', sans-serif; font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+  /* ── VIDEO REFS ── */
+  .vid-section {
+    background: var(--purple-light);
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 16px;
+  }
+  .vid-title {
+    font-family: 'Arial', sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--purple);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .vid-list { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
+  .vid-list li a {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    color: var(--purple);
+    background: white;
+    border: 1px solid #d8c8f0;
+    padding: 4px 10px;
+    border-radius: 99px;
+    text-decoration: none;
+    transition: all .15s;
+  }
+  .vid-list li a:hover { background: var(--purple); color: white; border-color: var(--purple); }
+
+  /* ── CARDIO NOTE ── */
+  .cardio-note {
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    color: var(--muted);
+    font-style: italic;
+    padding-top: 8px;
+    border-top: 1px solid var(--border);
+  }
+
+  /* ── DIET SECTION ── */
+  .meal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+  .meal-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .meal-header {
+    padding: 14px 18px 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .meal-time {
+    font-family: 'Arial', sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 2px;
+  }
+  .meal-name { font-size: 15px; }
+  .meal-kcal {
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    color: var(--accent);
+    margin-top: 4px;
+  }
+  .meal-items { padding: 12px 18px; }
+  .meal-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    font-size: 13px;
+    border-bottom: 1px solid #f5f3f0;
+  }
+  .meal-item:last-child { border-bottom: none; }
+  .meal-item-qty {
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    color: var(--muted);
+    white-space: nowrap;
+    margin-left: 8px;
+  }
+  .meal-macros {
+    display: flex;
+    gap: 12px;
+    padding: 10px 18px;
+    background: #fafaf9;
+    border-top: 1px solid var(--border);
+  }
+  .meal-macro { font-family: 'Arial', sans-serif; font-size: 11px; color: var(--muted); }
+  .meal-macro span { font-weight: bold; color: var(--text); }
+
+  /* ── LEGEND ── */
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 32px;
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+  }
+  .legend-item { display: flex; align-items: center; gap: 6px; color: var(--muted); }
+
+  /* ── TIPS ── */
+  .tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin-bottom: 48px;
+  }
+  .tip-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 18px;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .tip-icon { font-size: 18px; margin-bottom: 8px; display: block; }
+
+  /* ── FOOTER ── */
+  .footer-note {
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    color: var(--muted);
+    text-align: center;
+    padding: 32px 0 16px;
+    border-top: 1px solid var(--border);
+    line-height: 1.8;
+  }
+
+  /* ── WEEK STRIP ── */
+  .week-strip {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+    margin-bottom: 32px;
+  }
+  .week-day {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 8px;
+    text-align: center;
+  }
+  .week-day-name {
+    font-family: 'Arial', sans-serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .week-day-label {
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--accent);
+  }
+  .week-day-desc { font-family: 'Arial', sans-serif; font-size: 10px; color: var(--muted); margin-top: 2px; }
+
+  @media (max-width: 600px) {
+    /* Layout */
+    .wrap { padding: 16px 12px 60px; }
+    .hero { padding: 36px 16px 28px; margin-bottom: 24px; }
+    .hero h1 { font-size: 32px; }
+
+    /* Stats & macros */
+    .stats { grid-template-columns: repeat(2, 1fr); gap: 8px; margin-bottom: 24px; }
+    .macro-row { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+
+    /* Week strip — keep 5 cols, hide desc */
+    .week-strip { grid-template-columns: repeat(5, 1fr); gap: 4px; margin-bottom: 20px; }
+    .week-day { padding: 8px 2px; }
+    .week-day-label { font-size: 13px; }
+    .week-day-desc { display: none; }
+
+    /* Training cards */
+    .treino-header { padding: 14px 14px; }
+    .treino-header-left { flex-wrap: wrap; gap: 4px 10px; }
+    .treino-title { font-size: 15px; }
+    .treino-meta { display: flex; }
+    .treino-body { padding: 12px 14px 18px; }
+    .warmup-tag { font-size: 11px; padding: 5px 12px; margin: 10px 0 12px; }
+
+    /* Exercise table → stacked card layout */
+    .ex-table,
+    .ex-table tbody,
+    .ex-table tr,
+    .ex-table td { display: block; }
+    .ex-table thead { display: none; }
+    .ex-table tr {
+      padding: 12px 0;
+      border-bottom: 1px solid #f0ede8;
+    }
+    .ex-table tr:last-child { border-bottom: none; }
+    .ex-table tr:hover td { background: transparent; }
+    .ex-table td { padding: 2px 0; border: none !important; font-size: 13px; }
+
+    /* Superset label full-width on mobile */
+    .superset-label { padding: 0; }
+    .superset-label td { border-radius: 6px; margin-bottom: 0; }
+    .superset-row td, .drop-row td { border-left: none !important; }
+    .superset-row { padding: 8px 0; border-bottom: none !important; }
+    .superset-end { border-bottom: 2px solid var(--purple) !important; }
+    .superset-end td { border-bottom: none !important; }
+
+    /* Badges row */
+    .ex-table td:nth-child(1) { margin-bottom: 2px; }
+
+    /* Exercise name */
+    .ex-table td:nth-child(2) { font-size: 14px; margin-bottom: 5px; }
+
+    /* Séries × Reps */
+    .ex-table td:nth-child(3) {
+      font-family: 'Arial', sans-serif;
+      font-size: 12px;
+      color: var(--accent);
+      font-weight: bold;
+    }
+    .ex-table td:nth-child(3)::before {
+      content: "Séries: ";
+      font-weight: normal;
+      color: var(--muted);
+    }
+
+    /* Descanso */
+    .ex-table td:nth-child(4) {
+      font-family: 'Arial', sans-serif;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .ex-table td:nth-child(4)::before {
+      content: "Descanso: ";
+    }
+
+    /* Execução / Método */
+    .ex-table td:nth-child(5) {
+      background: var(--accent-light);
+      padding: 6px 10px;
+      border-radius: 6px;
+      margin-top: 6px;
+      font-size: 11px;
+      color: var(--accent);
+    }
+
+    /* Video section */
+    .vid-section { padding: 10px 12px; margin-bottom: 12px; }
+    .vid-list { gap: 6px; }
+    .vid-list li a { font-size: 10px; padding: 3px 8px; }
+    .cardio-note { font-size: 11px; }
+
+    /* Diet */
+    .meal-grid { grid-template-columns: 1fr; }
+
+    /* Tips */
+    .tips-grid { grid-template-columns: 1fr; }
+
+    /* Section title */
+    .section-title { font-size: 10px; }
+  }
+
+  /* ── BACK TO HOME ── */
+  .home-link {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 50;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--border);
+    padding: 9px 16px;
+    border-radius: 99px;
+    text-decoration: none;
+    box-shadow: var(--shadow);
+    transition: all .18s ease;
+  }
+  .home-link:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+  @media (max-width: 600px) { .home-link { top: 12px; left: 12px; padding: 7px 13px; font-size: 11px; } }
+</style>
+</head>
+<body>
+
+<a href="index.html" class="home-link">← Início</a>
+
+<!-- HERO -->
+<div class="hero">
+  <p class="hero-eyebrow">Plano Personalizado 2026</p>
+  <h1>Dieta &amp; Treino</h1>
+  <p class="hero-sub">Jória &nbsp;·&nbsp; 31 anos &nbsp;·&nbsp; 1,59 m &nbsp;·&nbsp; 71 kg</p>
+  <span class="hero-isa">✦ Metodologia Isabella Duarte (@isabelladuarrt)</span>
+</div>
+
+<div class="wrap">
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stat"><span class="stat-val">1.750</span><span class="stat-label">kcal / dia</span></div>
+    <div class="stat"><span class="stat-val">151 g</span><span class="stat-label">Proteína</span></div>
+    <div class="stat"><span class="stat-val">165 g</span><span class="stat-label">Carboidratos</span></div>
+    <div class="stat"><span class="stat-val">50 g</span><span class="stat-label">Gordura</span></div>
+    <div class="stat"><span class="stat-val">5×</span><span class="stat-label">Treinos / sem.</span></div>
+    <div class="stat"><span class="stat-val">50 min</span><span class="stat-label">Duração máx.</span></div>
+    <div class="stat"><span class="stat-val">−470</span><span class="stat-label">kcal déficit</span></div>
+    <div class="stat"><span class="stat-val">62–64 kg</span><span class="stat-label">Peso-alvo</span></div>
+  </div>
+
+  <!-- ── TREINO ─────────────────────────────── -->
+  <p class="section-title">Plano de Treino</p>
+
+  <!-- Semana -->
+  <div class="week-strip">
+    <div class="week-day"><div class="week-day-name">Seg</div><div class="week-day-label">A</div><div class="week-day-desc">Glúteo + Post.</div></div>
+    <div class="week-day"><div class="week-day-name">Ter</div><div class="week-day-label">B</div><div class="week-day-desc">Peito · Costas</div></div>
+    <div class="week-day"><div class="week-day-name">Qua</div><div class="week-day-label">C</div><div class="week-day-desc">Quad + Glúteo</div></div>
+    <div class="week-day"><div class="week-day-name">Qui</div><div class="week-day-label">B2</div><div class="week-day-desc">Superior var.</div></div>
+    <div class="week-day"><div class="week-day-name">Sex</div><div class="week-day-label">D</div><div class="week-day-desc">Glúteo Bi-sets</div></div>
+  </div>
+
+  <!-- Legenda -->
+  <div class="legend">
+    <div class="legend-item"><span class="badge badge-c">C</span> Composto</div>
+    <div class="legend-item"><span class="badge badge-i">I</span> Isolamento</div>
+    <div class="legend-item"><span class="badge badge-bi">Bi</span> Bi-set (sem pausa)</div>
+    <div class="legend-item"><span class="badge badge-drop">Drop</span> Drop-set última série</div>
+    <div class="legend-item"><span class="badge badge-rp">RP</span> Rest-pause última série</div>
+    <div class="legend-item"><span class="badge badge-exc">Exc</span> Excêntrico 2-3 s</div>
+  </div>
+
+  <div class="training-grid">
+
+    <!-- TREINO A -->
+    <div class="treino-card open">
+      <div class="treino-header" onclick="toggle(this)">
+        <div class="treino-header-left">
+          <span class="treino-day">Segunda</span>
+          <span class="treino-title">Treino A — Glúteo + Posterior de Coxa</span>
+        </div>
+        <div class="treino-meta">
+          <span class="treino-time">~41 min</span>
+          <span class="chevron">▾</span>
+        </div>
+      </div>
+      <div class="treino-body">
+        <span class="warmup-tag">🔥 Aquecimento obrigatório · 5 min mobilidade quadril + 2×20 abdução mini-band</span>
+        <table class="ex-table">
+          <thead><tr>
+            <th>Tipo</th><th>Exercício</th><th>Séries × Reps</th><th>Descanso</th><th>Execução / Método</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td><span class="badge badge-c">C</span></td>
+              <td><span class="ex-name">Levantamento Terra Sumô</span></td>
+              <td>4 × 8-10</td><td>90 s</td>
+              <td class="ex-note">Composto principal · carga progressiva · RIR 1-2</td>
+            </tr>
+            <tr>
+              <td><span class="badge badge-c">C</span></td>
+              <td><span class="ex-name">Leg Press 45° pés altos (ênfase glúteo)</span></td>
+              <td>3 × 10-12</td><td>90 s</td>
+              <td class="ex-note">Posição alta → maior ativação glútea</td>
+            </tr>
+            <tr class="drop-row">
+              <td><span class="badge badge-i">I</span> <span class="badge badge-drop">Drop-set</span></td>
+              <td><span class="ex-name">Cadeira Flexora</span></td>
+              <td>3 × 10-12</td><td>60 s</td>
+              <td class="ex-note">⬇ Última série: reduza 35% da carga e vá até a falha</td>
+            </tr>
+            <tr>
+              <td><span class="badge badge-c">C</span> <span class="badge badge-exc">Exc</span></td>
+              <td><span class="ex-name">Agachamento Búlgaro c/ halteres</span></td>
+              <td>3 × 10/perna</td><td>90 s</td>
+              <td class="ex-note">Excêntrico 2-3 s na descida · ROM máximo</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="vid-section">
+          <div class="vid-title">📺 Vídeos de Execução — Isabella Duarte</div>
+          <ul class="vid-list">
+            <li><a href="https://www.youtube.com/watch?v=rEsnCJlHaN0" target="_blank">▶ Terra Sumô</a></li>
+            <li><a href="https://www.youtube.com/watch?v=OO9xx7UVUJA" target="_blank">▶ Leg Press 45° Glúteo</a></li>
+            <li><a href="https://www.youtube.com/watch?v=ERaXLpeTKlQ" target="_blank">▶ Cadeira Flexora</a></li>
+            <li><a href="https://www.youtube.com/shorts/FUfvxsGCALg" target="_blank">▶ Búlgaro</a></li>
+          </ul>
+        </div>
+        <p class="cardio-note">🚶 Cardio: 30-40 min esteira inclinação 2-3%, 60-70% FC máx</p>
+      </div>
+    </div>
+
+    <!-- TREINO B -->
+    <div class="treino-card open">
+      <div class="treino-header" onclick="toggle(this)">
+        <div class="treino-header-left">
+          <span class="treino-day">Terça</span>
+          <span class="treino-title">Treino B — Peito + Costas + Ombro</span>
+        </div>
+        <div class="treino-meta">
+          <span class="treino-time">~44 min</span>
+          <span class="chevron">▾</span>
+        </div>
+      </div>
+      <div class="treino-body">
+        <span class="warmup-tag">🔥 Aquecimento · 5 min mobilidade ombro + 1 série leve no Supino</span>
+        <table class="ex-table">
+          <thead><tr>
+            <th>Tipo</th><th>Exercício</th><th>Séries × Reps</th><th>Descanso</th><th>Execução / Método</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td><span class="badge badge-c">C</span></td>
+              <td><span class="ex-name">Supino c/ halteres (ou Smith)</span></td>
+              <td>4 × 8-10</td><td>90 s</td>
+              <td class="ex-note">Composto principal de peito · RIR 1-2</td>
+            </tr>
+            <tr class="drop-row">
+              <td><span class="badge badge-i">I</span> <span class="badge badge-drop">Drop-set</span></td>
+              <td><span class="ex-name">Peck Deck (voador)</span></td>
+              <td>3 × 12-15</td><td>60 s</td>
+              <td class="ex-note">⬇ Última série: reduza 35% da carga e vá até a falha</td>
+            </tr>
+            <tr>
+              <td><span class="badge badge-c">C</span></td>
+              <td><span class="ex-name">Remada com barra (curvada)</span></td>
+              <td>4 × 8-10</td><td>90 s</td>
+              <td class="ex-note">Puxar até o umbigo · RIR 1-2</td>
+            </tr>
+            <tr class="superset-label">
+              <td colspan="5">⚡ SUPERSET — Faça ① e ② em sequência sem pausar, depois descanse 75 s</td>
+            </tr>
+            <tr class="superset-row">
+              <td><span class="badge badge-bi">① Ombro</span></td>
+              <td><span class="ex-name">Desenvolvimento c/ halteres</span></td>
+              <td>3 × 10-12</td><td>Sem pausa ↓</td>
+              <td class="ex-note">Vai direto para o exercício ②</td>
+            </tr>
+            <tr class="superset-row superset-end">
+              <td><span class="badge badge-bi">② Ombro</span></td>
+              <td><span class="ex-name">Elevação lateral + frontal</span></td>
+              <td>3 × 12+12</td><td>75 s após o par</td>
+              <td class="ex-note">Bi-set favorito da Isabella para ombros · descanse após completar os dois</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="vid-section">
+          <div class="vid-title">📺 Vídeos de Execução — Isabella Duarte</div>
+          <ul class="vid-list">
+            <li><a href="https://www.youtube.com/watch?v=vdLpD8I1nRg" target="_blank">▶ Supino horizontal</a></li>
+            <li><a href="https://www.youtube.com/shorts/Mk3XOcJuwOk" target="_blank">▶ Remada Curvada</a></li>
+            <li><a href="https://www.youtube.com/watch?v=bK2SrMWqiWY" target="_blank">▶ Desenvolvimento Halter</a></li>
+            <li><a href="https://www.youtube.com/shorts/fKwnk9SvB-w" target="_blank">▶ Elev. Lateral + Arnold</a></li>
+          </ul>
+        </div>
+        <p class="cardio-note">🚴 Cardio: 20 min bicicleta ou elíptico</p>
+      </div>
+    </div>
+
+    <!-- TREINO C -->
+    <div class="treino-card">
+      <div class="treino-header" onclick="toggle(this)">
+        <div class="treino-header-left">
+          <span class="treino-day">Quarta (A)</span>
+          <span class="treino-title">Treino C — Quadríceps + Glúteo ênfase anterior</span>
+        </div>
+        <div class="treino-meta">
+          <span class="treino-time">~49 min</span>
+          <span class="chevron">▾</span>
+        </div>
+      </div>
+      <div class="treino-body">
+        <span class="warmup-tag">🔥 Aquecimento obrigatório · 5 min mobilidade quadril + mini-band</span>
+        <table class="ex-table">
+          <thead><tr>
+            <th>Tipo</th><th>Exercício</th><th>Séries × Reps</th><th>Descanso</th><th>Execução / Método</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td><span class="badge badge-c">C</span></td>
+              <td><span class="ex-name">Agachamento Livre (ou Smith)</span></td>
+              <td>4 × 8-10</td><td>90 s</td>
+              <td class="ex-note">Descer até 90°· RIR 1-2</td>
+            </tr>
+            <tr>
+              <td><span class="badge badge-c">C</span></td>
+              <td><span class="ex-name">Leg Press 45° pés centrais (ênfase quad)</span></td>
+              <td>4 × 10-12</td><td>90 s</td>
+              <td class="ex-note">Press completo · não travar joelho</td>
+            </tr>
+            <tr class="drop-row">
+              <td><span class="badge badge-i">I</span> <span class="badge badge-rp">Rest-pause</span></td>
+              <td><span class="ex-name">Cadeira Extensora</span></td>
+              <td>3 × 12-15</td><td>60 s</td>
+              <td class="ex-note">⏸ Última série: vá até a falha → pause 10-15 s → faça +3-5 reps extras</td>
+            </tr>
+            <tr>
+              <td><span class="badge badge-c">C</span> <span class="badge badge-exc">Exc</span></td>
+              <td><span class="ex-name">Agachamento Sumô c/ halter</span></td>
+              <td>3 × 10-12</td><td>90 s</td>
+              <td class="ex-note">Excêntrico 3 s · pés bem abertos · glúteo médio</td>
+            </tr>
+            <tr class="drop-row">
+              <td><span class="badge badge-i">I</span> <span class="badge badge-drop">Drop-set</span></td>
+              <td><span class="ex-name">Abdução de Quadril (máquina ou polia)</span></td>
+              <td>3 × 15-20</td><td>45 s</td>
+              <td class="ex-note">⬇ Última série: reduza 35% da carga e vá até a falha · sem balanço de tronco</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="vid-section">
+          <div class="vid-title">📺 Vídeos de Execução — Isabella Duarte</div>
+          <ul class="vid-list">
+            <li><a href="https://www.youtube.com/shorts/q0rCHxKHvtw" target="_blank">▶ Agachamento Livre</a></li>
+            <li><a href="https://www.youtube.com/watch?v=TH5KhghAkf8" target="_blank">▶ Leg Press 45° quad</a></li>
+            <li><a href="https://www.youtube.com/watch?v=hEI29XmxdtU" target="_blank">▶ Extensora (execução correta)</a></li>
+            <li><a href="https://www.youtube.com/shorts/UtCNpHkEd0E" target="_blank">▶ Agachamento Sumô</a></li>
+            <li><a href="https://www.youtube.com/watch?v=S9OtoSJdMWo" target="_blank">▶ Abdução Quadril</a></li>
+          </ul>
+        </div>
+        <p class="cardio-note">🏃 Cardio: 30 min esteira inclinada 8-10% &nbsp;|&nbsp; Opção B (4×): somente cardio 45-60 min</p>
+      </div>
+    </div>
+
+    <!-- TREINO B2 -->
+    <div class="treino-card">
+      <div class="treino-header" onclick="toggle(this)">
+        <div class="treino-header-left">
+          <span class="treino-day">Quinta</span>
+          <span class="treino-title">Treino B2 — Superior Variação</span>
+        </div>
+        <div class="treino-meta">
+          <span class="treino-time">~48 min</span>
+          <span class="chevron">▾</span>
+        </div>
+      </div>
+      <div class="treino-body">
+        <span class="warmup-tag">🔥 Aquecimento · 5 min mobilidade ombro + 1 série leve na Remada</span>
+        <table class="ex-table">
+          <thead><tr>
+            <th>Tipo</th><th>Exercício</th><th>Séries × Reps</th><th>Descanso</th><th>Execução / Método</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td><span class="badge badge-c">C</span></td>
+              <td><span class="ex-name">Remada Curvada c/ barra</span></td>
+              <td>4 × 8-10</td><td>90 s</td>
+              <td class="ex-note">Variação da Remada do Treino B</td>
+            </tr>
+            <tr>
+              <td><span class="badge badge-c">C</span></td>
+              <td><span class="ex-name">Desenvolvimento Arnold</span></td>
+              <td>3 × 10-12</td><td>90 s</td>
+              <td class="ex-note">Rotação completa do punho · amplitude total</td>
+            </tr>
+            <tr>
+              <td><span class="badge badge-c">C</span></td>
+              <td><span class="ex-name">Puxada neutra ou aberta</span></td>
+              <td>3 × 10-12</td><td>90 s</td>
+              <td class="ex-note">Costas e bíceps · variação da Terça</td>
+            </tr>
+            <tr>
+              <td><span class="badge badge-i">I</span></td>
+              <td><span class="ex-name">Voador Reverso (pec deck invertido)</span></td>
+              <td>3 × 12-15</td><td>60 s</td>
+              <td class="ex-note">Posterior de ombro · cotovelo levemente fletido</td>
+            </tr>
+            <tr class="superset-label">
+              <td colspan="5">⚡ SUPERSET ANTAGONISTA — Faça ① e ② em sequência sem pausar, depois descanse 60 s</td>
+            </tr>
+            <tr class="superset-row">
+              <td><span class="badge badge-bi">① Bíceps</span></td>
+              <td><span class="ex-name">Rosca direta / martelo</span></td>
+              <td>3 × 10-12</td><td>Sem pausa ↓</td>
+              <td class="ex-note">Vai direto para o exercício ②</td>
+            </tr>
+            <tr class="superset-row superset-end">
+              <td><span class="badge badge-bi">② Tríceps</span></td>
+              <td><span class="ex-name">Tríceps corda (polia)</span></td>
+              <td>3 × 10-12</td><td>60 s após o par</td>
+              <td class="ex-note">Antagonista de braço · descanse após completar os dois</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="vid-section">
+          <div class="vid-title">📺 Vídeos de Execução — Isabella Duarte</div>
+          <ul class="vid-list">
+            <li><a href="https://www.youtube.com/shorts/XmdV3XzcN9M" target="_blank">▶ Remada Curvada</a></li>
+            <li><a href="https://www.youtube.com/shorts/fKwnk9SvB-w" target="_blank">▶ Arnold (bi-set)</a></li>
+            <li><a href="https://www.youtube.com/watch?v=SapM-j_3M20" target="_blank">▶ Puxada Aberta Pulley</a></li>
+            <li><a href="https://www.youtube.com/watch?v=PHoeBociD78" target="_blank">▶ Voador Reverso</a></li>
+            <li><a href="https://www.youtube.com/watch?v=4TI62My6O3g" target="_blank">▶ Rosca Bíceps</a></li>
+            <li><a href="https://www.youtube.com/watch?v=MMc0xPdeuZI" target="_blank">▶ Tríceps Corda</a></li>
+          </ul>
+        </div>
+        <p class="cardio-note">🚴 Cardio: 20 min elíptico ou bicicleta</p>
+      </div>
+    </div>
+
+    <!-- TREINO D -->
+    <div class="treino-card">
+      <div class="treino-header" onclick="toggle(this)">
+        <div class="treino-header-left">
+          <span class="treino-day">Sexta</span>
+          <span class="treino-title">Treino D — Glúteo Bi-sets (sessão intensa)</span>
+        </div>
+        <div class="treino-meta">
+          <span class="treino-time">~44 min</span>
+          <span class="chevron">▾</span>
+        </div>
+      </div>
+      <div class="treino-body">
+        <span class="warmup-tag">🔥 Aquecimento obrigatório · 5 min mobilidade quadril + mini-band</span>
+        <table class="ex-table">
+          <thead><tr>
+            <th>Tipo</th><th>Exercício</th><th>Séries × Reps</th><th>Descanso</th><th>Execução / Método</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td><span class="badge badge-c">C</span></td>
+              <td><span class="ex-name">Hiperextensão 45° (foco glúteos)</span></td>
+              <td>4 × 8-12</td><td>90 s</td>
+              <td class="ex-note">Inclinar tronco · segurar 1-2 s no topo · excêntrico</td>
+            </tr>
+            <tr class="superset-label">
+              <td colspan="5">⚡ SUPERSET 1 — Posterior de coxa: faça ① e ② em sequência sem pausar, depois descanse 75 s</td>
+            </tr>
+            <tr class="superset-row">
+              <td><span class="badge badge-bi">① Posterior</span></td>
+              <td><span class="ex-name">Stiff c/ barra (cadeia posterior)</span></td>
+              <td>3 × 10</td><td>Sem pausa ↓</td>
+              <td class="ex-note">Vai direto para o exercício ②</td>
+            </tr>
+            <tr class="superset-row superset-end">
+              <td><span class="badge badge-bi">② Posterior</span></td>
+              <td><span class="ex-name">Cadeira Flexora</span></td>
+              <td>3 × 12</td><td>75 s após o par</td>
+              <td class="ex-note">Composto + isolamento posterior · descanse após completar os dois</td>
+            </tr>
+            <tr class="superset-label">
+              <td colspan="5">⚡ SUPERSET 2 — Glúteo: faça ① e ② em sequência sem pausar, depois descanse 60 s</td>
+            </tr>
+            <tr class="superset-row">
+              <td><span class="badge badge-bi">① Glúteo</span></td>
+              <td><span class="ex-name">Agachamento Búlgaro c/ halteres</span></td>
+              <td>3 × 10/perna</td><td>Sem pausa ↓</td>
+              <td class="ex-note">Vai direto para o exercício ②</td>
+            </tr>
+            <tr class="superset-row superset-end">
+              <td><span class="badge badge-bi">② Glúteo</span></td>
+              <td><span class="ex-name">Coice na Polia / Kickback</span></td>
+              <td>3 × 15/perna</td><td>60 s após o par</td>
+              <td class="ex-note">Glúteo múltiplo ângulo · descanse após completar os dois</td>
+            </tr>
+            <tr class="drop-row">
+              <td><span class="badge badge-i">I</span> <span class="badge badge-drop">Drop-set</span></td>
+              <td><span class="ex-name">Abdução de Quadril</span></td>
+              <td>3 × 15-20</td><td>45 s</td>
+              <td class="ex-note">⬇ Última série: reduza 35% da carga e vá até a falha · finalizador da semana</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="vid-section">
+          <div class="vid-title">📺 Vídeos de Execução — Isabella Duarte</div>
+          <ul class="vid-list">
+            <li><a href="https://www.youtube.com/shorts/FU9bx4wxnxw" target="_blank">▶ Stiff Unilateral + Glúteo</a></li>
+            <li><a href="https://www.youtube.com/shorts/m8KXw9HIjps" target="_blank">▶ Stiff + Alongamento</a></li>
+            <li><a href="https://www.youtube.com/shorts/FUfvxsGCALg" target="_blank">▶ Búlgaro + Stiff (bi-set)</a></li>
+            <li><a href="https://www.youtube.com/watch?v=P4eV884PUcA" target="_blank">▶ Coice na Polia (Glúteo)</a></li>
+            <li><a href="https://www.youtube.com/watch?v=S9OtoSJdMWo" target="_blank">▶ Abdução Quadril</a></li>
+            <li><a href="https://www.youtube.com/shorts/JKCA_mvjTxY" target="_blank">▶ Bi-set Glúteos Isabella</a></li>
+          </ul>
+        </div>
+        <p class="cardio-note">🚶 Cardio: 30 min caminhada inclinada — recuperação ativa</p>
+      </div>
+    </div>
+
+  </div><!-- /training-grid -->
+
+  <!-- Dicas de treino -->
+  <p class="section-title">Diretrizes — Metodologia Isabella Duarte</p>
+  <div class="tips-grid">
+    <div class="tip-card"><span class="tip-icon">📈</span><strong>Progressão de carga</strong><br>Aumente o peso quando completar todas as reps com boa técnica — nunca sacrifique execução.</div>
+    <div class="tip-card"><span class="tip-icon">⬇️</span><strong>Drop-set</strong><br>Somente na última série. Reduza 30-40% da carga e vá até a falha real.</div>
+    <div class="tip-card"><span class="tip-icon">⏸️</span><strong>Rest-pause</strong><br>Após a falha, descanse 10-15 s com a barra no suporte, depois faça +3-5 reps.</div>
+    <div class="tip-card"><span class="tip-icon">⚡</span><strong>Bi-set</strong><br>Execute o exercício A, sem pausa vá direto para B, então descanse o tempo indicado.</div>
+    <div class="tip-card"><span class="tip-icon">🎽</span><strong>Mini-band</strong><br>5-10 min de mobilidade + 2×20 abdução antes de qualquer treino inferior.</div>
+    <div class="tip-card"><span class="tip-icon">😴</span><strong>Recuperação</strong><br>7-8 h de sono por noite. Determinante para hipertrofia em mulheres naturais.</div>
+  </div>
+
+  <!-- ── DIETA ─────────────────────────────── -->
+  <p class="section-title">Plano Alimentar</p>
+
+  <!-- Alerta de meta -->
+  <div style="background:var(--green-light);border:1px solid #b8dfc8;border-radius:var(--radius);padding:16px 20px;margin-bottom:24px;font-family:&#39;Arial&#39;,sans-serif;font-size:13px;line-height:1.6;">
+    <strong style="color:var(--green);">✦ Meta e verificação calórica</strong><br>
+    TDEE estimado (fator 1,6 · 4-5×/sem + cardio): <strong>~2.220 kcal</strong> &nbsp;·&nbsp; Déficit: <strong>~470 kcal/dia</strong> &nbsp;·&nbsp; Perda estimada: <strong>~0,4 kg/semana</strong><br>
+    Peso-alvo ideal para 1,59 m com músculo: <strong>62–64 kg</strong> (−7 a −9 kg · prazo ~4-5 meses)
+  </div>
+
+  <div class="macro-row">
+    <div class="macro-card kcal"><span class="macro-val">1.750</span><span class="macro-label">kcal / dia</span></div>
+    <div class="macro-card prot"><span class="macro-val">151 g</span><span class="macro-label">Proteína</span></div>
+    <div class="macro-card carb"><span class="macro-val">165 g</span><span class="macro-label">Carboidratos</span></div>
+    <div class="macro-card fat"><span class="macro-val">50 g</span><span class="macro-label">Gordura</span></div>
+  </div>
+
+  <!-- Timeline visual -->
+  <div style="display:flex;align-items:center;gap:0;margin-bottom:28px;overflow-x:auto;padding-bottom:4px;">
+    <div style="text-align:center;flex:1;min-width:80px;">
+      <div style="font-family:&#39;Arial&#39;,sans-serif;font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);">Acorda</div>
+      <div style="font-size:15px;font-weight:bold;color:var(--accent);">8h30</div>
+    </div>
+    <div style="width:24px;height:2px;background:var(--border);flex-shrink:0;"></div>
+    <div style="text-align:center;flex:1;min-width:80px;">
+      <div style="font-family:&#39;Arial&#39;,sans-serif;font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);">Café</div>
+      <div style="font-size:15px;font-weight:bold;color:var(--accent);">9h</div>
+    </div>
+    <div style="width:24px;height:2px;background:var(--border);flex-shrink:0;"></div>
+    <div style="text-align:center;flex:1;min-width:80px;">
+      <div style="font-family:&#39;Arial&#39;,sans-serif;font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);">Pré-treino</div>
+      <div style="font-size:15px;font-weight:bold;color:var(--accent);">11h</div>
+    </div>
+    <div style="width:24px;height:2px;background:var(--green);flex-shrink:0;"></div>
+    <div style="text-align:center;flex:1;min-width:80px;background:var(--green-light);border-radius:8px;padding:6px 4px;">
+      <div style="font-family:&#39;Arial&#39;,sans-serif;font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--green);">Treino</div>
+      <div style="font-size:15px;font-weight:bold;color:var(--green);">12–13h</div>
+    </div>
+    <div style="width:24px;height:2px;background:var(--border);flex-shrink:0;"></div>
+    <div style="text-align:center;flex:1;min-width:80px;">
+      <div style="font-family:&#39;Arial&#39;,sans-serif;font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);">Almoço</div>
+      <div style="font-size:15px;font-weight:bold;color:var(--accent);">13h30</div>
+    </div>
+    <div style="width:24px;height:2px;background:var(--border);flex-shrink:0;"></div>
+    <div style="text-align:center;flex:1;min-width:80px;">
+      <div style="font-family:&#39;Arial&#39;,sans-serif;font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);">Lanche</div>
+      <div style="font-size:15px;font-weight:bold;color:var(--accent);">16h30</div>
+    </div>
+    <div style="width:24px;height:2px;background:var(--border);flex-shrink:0;"></div>
+    <div style="text-align:center;flex:1;min-width:80px;">
+      <div style="font-family:&#39;Arial&#39;,sans-serif;font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);">Jantar</div>
+      <div style="font-size:15px;font-weight:bold;color:var(--accent);">19h30</div>
+    </div>
+    <div style="width:24px;height:2px;background:var(--border);flex-shrink:0;"></div>
+    <div style="text-align:center;flex:1;min-width:80px;">
+      <div style="font-family:&#39;Arial&#39;,sans-serif;font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);">Ceia</div>
+      <div style="font-size:15px;font-weight:bold;color:var(--accent);">22h</div>
+    </div>
+    <div style="width:24px;height:2px;background:var(--border);flex-shrink:0;"></div>
+    <div style="text-align:center;flex:1;min-width:80px;">
+      <div style="font-family:&#39;Arial&#39;,sans-serif;font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);">Dorme</div>
+      <div style="font-size:15px;font-weight:bold;color:var(--muted);">23h</div>
+    </div>
+  </div>
+
+  <div class="meal-grid">
+
+    <div class="meal-card">
+      <div class="meal-header">
+        <div class="meal-time">Refeição 1 · 9h — Café da Manhã</div>
+        <div class="meal-name">Cuscuz salgado com ovos</div>
+        <div class="meal-kcal">~350 kcal</div>
+      </div>
+      <div class="meal-items">
+        <div class="meal-item">Cuscuz de milho (seco)<span class="meal-item-qty">50 g</span></div>
+        <div class="meal-item">Ovos inteiros mexidos<span class="meal-item-qty">2 unidades</span></div>
+        <div class="meal-item">Queijo coalho grelhado<span class="meal-item-qty">20 g</span></div>
+        <div class="meal-item">Café preto<span class="meal-item-qty">200 ml</span></div>
+      </div>
+      <div class="meal-macros">
+        <span class="meal-macro">P: <span>20 g</span></span>
+        <span class="meal-macro">C: <span>38 g</span></span>
+        <span class="meal-macro">G: <span>14 g</span></span>
+      </div>
+    </div>
+
+    <div class="meal-card">
+      <div class="meal-header">
+        <div class="meal-time">Refeição 2 · 11h — Pré-Treino</div>
+        <div class="meal-name">Banana + Whey</div>
+        <div class="meal-kcal">~205 kcal</div>
+      </div>
+      <div class="meal-items">
+        <div class="meal-item">Banana média<span class="meal-item-qty">1 unidade (~100 g)</span></div>
+        <div class="meal-item">Whey Protein<span class="meal-item-qty">1 scoop / 30 g</span></div>
+      </div>
+      <div class="meal-macros">
+        <span class="meal-macro">P: <span>24 g</span></span>
+        <span class="meal-macro">C: <span>26 g</span></span>
+        <span class="meal-macro">G: <span>2 g</span></span>
+      </div>
+    </div>
+
+    <div class="meal-card">
+      <div class="meal-header">
+        <div class="meal-time">Refeição 3 · 13h30 — Pós-Treino</div>
+        <div class="meal-name">Almoço completo</div>
+        <div class="meal-kcal">~415 kcal</div>
+      </div>
+      <div class="meal-items">
+        <div class="meal-item">Frango / peixe / patinho<span class="meal-item-qty">150 g grelhado</span></div>
+        <div class="meal-item">Arroz integral<span class="meal-item-qty">4 col. sopa (~100 g coz.)</span></div>
+        <div class="meal-item">Seleta de legumes (ervilhas, milho, brócolis, couve-flor)<span class="meal-item-qty">100 g</span></div>
+        <div class="meal-item">Salada verde<span class="meal-item-qty">à vontade</span></div>
+        <div class="meal-item">Azeite extravirgem<span class="meal-item-qty">1 col. chá</span></div>
+      </div>
+      <div class="meal-macros">
+        <span class="meal-macro">P: <span>39 g</span></span>
+        <span class="meal-macro">C: <span>44 g</span></span>
+        <span class="meal-macro">G: <span>9 g</span></span>
+      </div>
+    </div>
+
+    <div class="meal-card">
+      <div class="meal-header">
+        <div class="meal-time">Refeição 4 · 16h30 — Lanche da tarde</div>
+        <div class="meal-name">Tapioca proteica</div>
+        <div class="meal-kcal">~300 kcal</div>
+      </div>
+      <div class="meal-items">
+        <div class="meal-item">Goma de tapioca<span class="meal-item-qty">2 col. sopa (20 g)</span></div>
+        <div class="meal-item">Ovos inteiros mexidos<span class="meal-item-qty">2 unidades</span></div>
+        <div class="meal-item">Queijo frescal<span class="meal-item-qty">30 g</span></div>
+        <div class="meal-item">Morango / maçã / melão / kiwi<span class="meal-item-qty">Morango 100 g · Maçã ou pera 120 g · Melão 150 g · Kiwi 100 g</span></div>
+      </div>
+      <div class="meal-macros">
+        <span class="meal-macro">P: <span>16 g</span></span>
+        <span class="meal-macro">C: <span>25 g</span></span>
+        <span class="meal-macro">G: <span>14 g</span></span>
+      </div>
+    </div>
+
+    <div class="meal-card">
+      <div class="meal-header">
+        <div class="meal-time">Refeição 5 · 19h30 — Jantar</div>
+        <div class="meal-name">Proteína + batata-doce</div>
+        <div class="meal-kcal">~370 kcal</div>
+      </div>
+      <div class="meal-items">
+        <div class="meal-item">Atum / salmão / frango<span class="meal-item-qty">150 g</span></div>
+        <div class="meal-item">Arroz integral cozido<span class="meal-item-qty">3 col. sopa (~80 g coz.)</span></div>
+        <div class="meal-item">Legumes refogados<span class="meal-item-qty">150 g</span></div>
+        <div class="meal-item">Azeite extravirgem<span class="meal-item-qty">1 col. chá</span></div>
+      </div>
+      <div class="meal-macros">
+        <span class="meal-macro">P: <span>38 g</span></span>
+        <span class="meal-macro">C: <span>24 g</span></span>
+        <span class="meal-macro">G: <span>9 g</span></span>
+      </div>
+    </div>
+
+    <div class="meal-card">
+      <div class="meal-header">
+        <div class="meal-time">Refeição 6 · 22h — Ceia</div>
+        <div class="meal-name">Proteína lenta antes de dormir</div>
+        <div class="meal-kcal">~170 kcal</div>
+      </div>
+      <div class="meal-items">
+        <div class="meal-item">Iogurte grego natural<span class="meal-item-qty">180 g</span></div>
+        <div class="meal-item">Canela em pó<span class="meal-item-qty">a gosto</span></div>
+      </div>
+      <div class="meal-macros">
+        <span class="meal-macro">P: <span>17 g</span></span>
+        <span class="meal-macro">C: <span>7 g</span></span>
+        <span class="meal-macro">G: <span>6 g</span></span>
+      </div>
+    </div>
+
+  </div><!-- /meal-grid -->
+
+  <!-- Totais -->
+  <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px 20px;margin-bottom:32px;display:flex;flex-wrap:wrap;gap:24px;font-family:&#39;Arial&#39;,sans-serif;font-size:13px;">
+    <div><span style="color:var(--muted);">Total diário</span> &nbsp; <strong>~1.750 kcal</strong></div>
+    <div><span style="color:var(--green);">Proteína</span> &nbsp; <strong>~151 g</strong></div>
+    <div><span style="color:var(--gold);">Carboidratos</span> &nbsp; <strong>~165 g</strong></div>
+    <div><span style="color:#c0785a;">Gordura</span> &nbsp; <strong>~50 g</strong></div>
+    <div style="color:var(--muted);border-left:1px solid var(--border);padding-left:24px;">Peso-alvo: <strong>62–64 kg</strong> · Prazo estimado: <strong>4–5 meses</strong></div>
+  </div>
+
+  <!-- Dicas alimentares -->
+  <p class="section-title">Dicas Alimentares</p>
+  <div class="tips-grid">
+    <div class="tip-card"><span class="tip-icon">💧</span>Beba <strong>2,5-3 L de água</strong> por dia.</div>
+    <div class="tip-card"><span class="tip-icon">🥦</span>Priorize <strong>alimentos integrais</strong>; minimize ultraprocessados.</div>
+    <div class="tip-card"><span class="tip-icon">⏰</span>Não pule refeições — <strong>a cada ~3 h</strong> mantém o metabolismo ativo.</div>
+    <div class="tip-card"><span class="tip-icon">🍕</span><strong>Cheat meal:</strong> 1 refeição livre por semana, sem exageros.</div>
+    <div class="tip-card"><span class="tip-icon">🥡</span><strong>Meal prep:</strong> prepare antecipado para evitar escolhas ruins.</div>
+    <div class="tip-card"><span class="tip-icon">💊</span><strong>Creatina</strong> 3-5 g/dia + Whey pós-treino: melhor suporte para atletas naturais.</div>
+  </div>
+
+  <div class="footer-note">
+    Este plano é uma orientação geral baseada na metodologia pública de Isabella Duarte e em evidências científicas.<br>
+    Consulte nutricionista (CRN) e educador físico (CREF) para acompanhamento individualizado.<br><br>
+    <strong>Boa jornada, Jória! Você consegue ✦</strong>
+  </div>
+
+</div><!-- /wrap -->
+
+
+<script>
+function toggle(header) {
+  const card = header.closest('.treino-card');
+  card.classList.toggle('open');
+}
+</script>
+
+
+
+</body></html>

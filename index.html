@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Treino &amp; Dieta — Planos Personalizados</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Helvetica Neue', Helvetica, system-ui, -apple-system, sans-serif;
+
+    /* Mulher — editorial light */
+    --w-bg: #f4f1ea;
+    --w-ink: #1b1b1b;
+    --w-accent: #2c5f8a;
+    --w-muted: #8a857c;
+
+    /* Homem — charcoal */
+    --m-bg: #0e0e12;
+    --m-ink: #f1f1f5;
+    --m-accent: #f97316;
+    --m-muted: #76768c;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+  body {
+    font-family: var(--sans);
+    background: var(--m-bg);
+    overflow: hidden;
+    color: var(--w-ink);
+  }
+  a { text-decoration: none; color: inherit; }
+
+  /* ── GATEWAY ── */
+  .gateway {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+  }
+  .panel {
+    position: relative;
+    flex: 1 1 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(28px, 6vw, 92px);
+    overflow: hidden;
+    cursor: pointer;
+    transition: flex-grow .7s cubic-bezier(.22,1,.36,1), filter .5s ease;
+    text-align: left;
+  }
+
+  .panel-mulher { background: var(--w-bg); color: var(--w-ink); }
+  .panel-homem  { background: var(--m-bg); color: var(--m-ink); }
+
+  /* hover expand on desktop */
+  @media (hover: hover) and (min-width: 760px) {
+    .gateway:hover .panel { flex-grow: 0.82; filter: saturate(.85) brightness(.94); }
+    .gateway .panel:hover { flex-grow: 1.55; filter: none; }
+  }
+
+  /* watermark name */
+  .watermark {
+    position: absolute;
+    bottom: -0.18em;
+    right: -0.02em;
+    font-family: var(--serif);
+    font-size: clamp(120px, 26vw, 420px);
+    font-weight: 500;
+    line-height: 0.8;
+    letter-spacing: -0.04em;
+    pointer-events: none;
+    white-space: nowrap;
+    user-select: none;
+  }
+  .panel-mulher .watermark { color: #2c5f8a; opacity: 0.045; }
+  .panel-homem  .watermark { color: #f97316; opacity: 0.08; }
+
+  /* content */
+  .panel-content { position: relative; z-index: 2; max-width: 440px; }
+
+  .index-num {
+    font-family: var(--sans);
+    font-size: 12px;
+    letter-spacing: 4px;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 26px;
+  }
+  .panel-mulher .index-num { color: var(--w-accent); }
+  .panel-homem  .index-num { color: var(--m-accent); }
+
+  .eyebrow {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .panel-mulher .eyebrow { color: var(--w-muted); }
+  .panel-homem  .eyebrow { color: var(--m-muted); }
+
+  .panel h2 {
+    font-family: var(--serif);
+    font-size: clamp(46px, 6.5vw, 92px);
+    font-weight: 500;
+    line-height: 0.94;
+    letter-spacing: -0.02em;
+    margin-bottom: 22px;
+  }
+  .panel-mulher h2 { color: var(--w-ink); }
+  .panel-homem  h2 { color: var(--m-ink); }
+  .panel h2 em {
+    font-style: italic;
+    font-weight: 400;
+  }
+  .panel-mulher h2 em { color: var(--w-accent); }
+  .panel-homem  h2 em { color: var(--m-accent); }
+
+  .panel p.lede {
+    font-family: var(--serif);
+    font-size: clamp(17px, 1.5vw, 20px);
+    line-height: 1.5;
+    margin-bottom: 30px;
+    max-width: 30ch;
+  }
+  .panel-mulher p.lede { color: #4a463f; }
+  .panel-homem  p.lede { color: #b7b7c7; }
+
+  /* stat row */
+  .stat-row {
+    display: flex;
+    gap: 28px;
+    margin-bottom: 38px;
+  }
+  .stat-row .s { display: flex; flex-direction: column; gap: 3px; }
+  .stat-row .s .v {
+    font-family: var(--serif);
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 1;
+    white-space: nowrap;
+  }
+  .stat-row .s .l {
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+  .panel-mulher .stat-row .v { color: var(--w-accent); }
+  .panel-mulher .stat-row .l { color: var(--w-muted); }
+  .panel-homem  .stat-row .v { color: var(--m-accent); }
+  .panel-homem  .stat-row .l { color: var(--m-muted); }
+
+  /* CTA */
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    padding: 16px 30px;
+    border-radius: 99px;
+    transition: gap .25s ease, background .25s ease, color .25s ease, transform .25s ease;
+  }
+  .panel-mulher .cta {
+    background: var(--w-accent);
+    color: #fff;
+  }
+  .panel-mulher .cta:hover { gap: 18px; background: #234d70; }
+  .panel-homem .cta {
+    background: var(--m-accent);
+    color: #1a1004;
+  }
+  .panel-homem .cta:hover { gap: 18px; background: #fb923c; }
+  .cta .arrow { transition: transform .25s ease; font-size: 15px; }
+
+  /* divider seam */
+  .seam {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: rgba(255,255,255,0.08);
+    z-index: 5;
+    transform: translateX(-50%);
+    pointer-events: none;
+  }
+
+  /* center brand pill */
+  .brand {
+    position: fixed;
+    top: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 12px 26px;
+    background: rgba(14,14,18,0.55);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 99px;
+    text-align: center;
+    pointer-events: none;
+  }
+  .brand .mark {
+    font-family: var(--serif);
+    font-size: 19px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: #fff;
+    line-height: 1;
+  }
+  .brand .mark em { font-style: italic; color: #f97316; }
+  .brand .sub {
+    font-family: var(--sans);
+    font-size: 8.5px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+  }
+
+  /* footer hint */
+  .foot {
+    position: fixed;
+    bottom: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: rgba(140,140,150,0.7);
+    pointer-events: none;
+    white-space: nowrap;
+  }
+
+  /* ── MOBILE: stack ── */
+  @media (max-width: 759px) {
+    body { overflow-y: auto; }
+    .gateway { flex-direction: column; height: auto; min-height: 100vh; }
+    .panel {
+      flex: none;
+      min-height: 56vh;
+      padding: 96px 28px 56px;
+      justify-content: flex-end;
+      text-align: left;
+    }
+    .seam { display: none; }
+    .watermark { font-size: 44vw; bottom: -0.12em; }
+    .index-num { margin-bottom: 16px; }
+    .stat-row { gap: 22px; margin-bottom: 28px; }
+    .foot { display: none; }
+    .brand { top: 16px; }
+  }
+  @media (max-width: 400px) {
+    .stat-row { gap: 16px; }
+    .stat-row .s .v { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="brand">
+    <span class="mark">Treino <em>&amp;</em> Dieta</span>
+    <span class="sub">Planos Personalizados · 2026</span>
+  </div>
+
+  <main class="gateway">
+
+    <a class="panel panel-mulher" href="mulher.html" aria-label="Ver plano da Jória">
+      <span class="watermark">Jória</span>
+      <div class="panel-content">
+        <span class="index-num">01</span>
+        <p class="eyebrow">Para Ela</p>
+        <h2>Plano da <em>Jória</em></h2>
+        <p class="lede">Glúteo, posterior e composição corporal. Metodologia Isabella Duarte.</p>
+        <div class="stat-row">
+          <div class="s"><span class="v">1.750</span><span class="l">kcal / dia</span></div>
+          <div class="s"><span class="v">5×</span><span class="l">por semana</span></div>
+          <div class="s"><span class="v">62–64</span><span class="l">kg alvo</span></div>
+        </div>
+        <span class="cta">Ver plano <span class="arrow">→</span></span>
+      </div>
+    </a>
+
+    <a class="panel panel-homem" href="homem.html" aria-label="Ver plano do Jhonatan">
+      <span class="watermark">Jhonatan</span>
+      <div class="panel-content">
+        <span class="index-num">02</span>
+        <p class="eyebrow">Para Ele</p>
+        <h2>Plano do <em>Jhonatan</em></h2>
+        <p class="lede">Upper/Lower com especialização. Recomposição corporal, nível avançado.</p>
+        <div class="stat-row">
+          <div class="s"><span class="v">2.448</span><span class="l">kcal / dia</span></div>
+          <div class="s"><span class="v">5×</span><span class="l">por semana</span></div>
+          <div class="s"><span class="v">81</span><span class="l">kg meta</span></div>
+        </div>
+        <span class="cta">Ver plano <span class="arrow">→</span></span>
+      </div>
+    </a>
+
+    <div class="seam"></div>
+  </main>
+
+  <div class="foot">Escolha um plano para começar</div>
+
+</body>
+</html>
